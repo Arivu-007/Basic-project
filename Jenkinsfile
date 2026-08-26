@@ -52,10 +52,8 @@ pipeline {
         // Stage 5: Apply updated manifests to the Kubernetes cluster
         stage('Deploy to Kubernetes') {
             steps {
-                withCredentials([file(credentialsId: 'kubeconfig', variable: 'KUBECONFIG')]) {
-                    sh 'kubectl apply -f k8s/'
-                    sh 'kubectl rollout status deployment/basic-project --timeout=120s'
-                }
+                sh 'KUBECONFIG=/Users/bublee/.kube/config kubectl apply -f k8s/'
+                sh 'KUBECONFIG=/Users/bublee/.kube/config kubectl rollout status deployment/basic-project --timeout=120s'
             }
         }
     }
