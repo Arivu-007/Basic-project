@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         // IMPORTANT: Replace 'YOUR_DOCKERHUB_USERNAME' with your actual Docker Hub username
-        REGISTRY    = 'YOUR_DOCKERHUB_USERNAME'
+        REGISTRY    = 'arivu007'
         APP_NAME    = 'basic-project'
         IMAGE_TAG   = "${REGISTRY}/${APP_NAME}:${env.BUILD_NUMBER}"
     }

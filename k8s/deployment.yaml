@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: basic-project
-        image: basic-project:local
+        image: arivu007/basic-project:latest
         ports:
         - containerPort: 3000
         livenessProbe:
