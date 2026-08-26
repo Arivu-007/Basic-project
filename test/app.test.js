@@ -43,7 +43,7 @@ describe('App Endpoints', () => {
     const res = await get(`${baseUrl}/`);
     assert.strictEqual(res.statusCode, 200);
     assert.match(res.body, /App Version: v\d+\.\d+\.\d+/);
-    assert.ok(res.body.includes('v1.0.0'), 'Should contain v1.0.0');
+    assert.ok(res.body.includes('v1.0.1'), 'Should contain v1.0.1');
   });
 
   it('GET /health should return ok status', async () => {

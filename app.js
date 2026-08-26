@@ -4,7 +4,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Application version — updated on each release
-const APP_VERSION = 'v1.0.0';
+const APP_VERSION = 'v1.0.1';
 
 // Main route — serves the version identifier
 app.get('/', (req, res) => {
