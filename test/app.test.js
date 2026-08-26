@@ -40,7 +40,7 @@ describe('App Endpoints', () => {
   });
 
   it('GET / should return the version string', async () => {
-    const res = await get(`${baseUrl}/`);
+    assert.ok(res.body.includes('v1.0.2'), 'Should contain v1.0.2');
     assert.strictEqual(res.statusCode, 200);
     assert.match(res.body, /App Version: v\d+\.\d+\.\d+/);
     assert.ok(res.body.includes('v1.0.1'), 'Should contain v1.0.1');
