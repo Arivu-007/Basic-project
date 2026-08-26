@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        // IMPORTANT: Replace 'YOUR_DOCKERHUB_USERNAME' with your actual Docker Hub username
+        PATH        = "/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
         REGISTRY    = 'arivu007'
         APP_NAME    = 'basic-project'
         IMAGE_TAG   = "${REGISTRY}/${APP_NAME}:${env.BUILD_NUMBER}"
