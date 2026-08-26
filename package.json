@@ -1,0 +1,18 @@
+{
+  "name": "basic-project",
+  "version": "1.0.0",
+  "description": "A simple Node.js web server for CI/CD pipeline demonstration",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "node --test test/app.test.js"
+  },
+  "dependencies": {
+    "express": "^4.21.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "author": "Arivu-007",
+  "license": "MIT"
+}
