@@ -21,7 +21,8 @@ spec:
     spec:
       containers:
       - name: basic-project
-        image: arivu007/basic-project:latest
+        image: arivu007/basic-project:23
+        imagePullPolicy: Always
         ports:
         - containerPort: 3000
         livenessProbe:
