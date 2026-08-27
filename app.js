@@ -6,9 +6,9 @@ const PORT = process.env.PORT || 3000;
 // Application version — updated on each release
 const APP_VERSION = 'v1.0.2';
 
-// Main route — serves the version identifier
+// Main route — serves the version identifier and author
 app.get('/', (req, res) => {
-  res.send(`App Version: ${APP_VERSION}`);
+  res.send(`App Version: ${APP_VERSION}\nAuthor: Arivu`);
 });
 
 // Health check endpoint — used by Kubernetes probes

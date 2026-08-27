@@ -44,6 +44,7 @@ describe('App Endpoints', () => {
     assert.strictEqual(res.statusCode, 200);
     assert.match(res.body, /App Version: v\d+\.\d+\.\d+/);
     assert.ok(res.body.includes('v1.0.2'), 'Should contain v1.0.2');
+    assert.ok(res.body.includes('Author: Arivu'), 'Should contain Author: Arivu');
   });
 
   it('GET /health should return ok status', async () => {
