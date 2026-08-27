@@ -8,7 +8,7 @@ const APP_VERSION = 'v1.0.2';
 
 // Main route — serves the version identifier, author, and location
 app.get('/', (req, res) => {
-  res.send(`App Version: ${APP_VERSION}<br>Author: Arivu<br>Location: Houston`);
+  res.send(`<div style="font-size: 24px; font-family: sans-serif; line-height: 1.6;">App Version: ${APP_VERSION}<br>Author: Arivu<br>Location: Houston</div>`);
 });
 
 // Health check endpoint — used by Kubernetes probes
