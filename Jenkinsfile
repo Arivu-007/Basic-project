@@ -54,7 +54,7 @@ pipeline {
         stage('Deploy to Kubernetes') {
             steps {
                 sh 'kubectl apply -f k8s/'
-                sh 'kubectl rollout status deployment/basic-project --timeout=180s'
+                sh 'kubectl rollout status deployment/basic-project -n uat --timeout=180s'
             }
         }
     }
