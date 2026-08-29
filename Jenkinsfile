@@ -28,12 +28,14 @@ pipeline {
         // Stage 3: Build Docker image and push to Docker Hub
         stage('Build & Push Docker Image') {
             steps {
-                script {
-                    docker.withRegistry('https://index.docker.io/v1/', 'dockerhub-credentials') {
-                        def appImage = docker.build("${IMAGE_TAG}")
-                        appImage.push()
-                        appImage.push('latest')
-                    }
+                withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+                    sh """
+                        echo "\$DOCKER_PASS" | docker login -u "\$DOCKER_USER" --password-stdin
+                        docker build -t ${IMAGE_TAG} .
+                        docker tag ${IMAGE_TAG} ${REGISTRY}/${APP_NAME}:latest
+                        docker push ${IMAGE_TAG}
+                        docker push ${REGISTRY}/${APP_NAME}:latest
+                    """
                 }
             }
         }
