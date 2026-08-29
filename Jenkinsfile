@@ -2,7 +2,6 @@ pipeline {
     agent any
 
     environment {
-        PATH        = "/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
         REGISTRY    = 'arivu007'
         APP_NAME    = 'basic-project'
         IMAGE_TAG   = "${REGISTRY}/${APP_NAME}:${env.BUILD_NUMBER}"
@@ -44,18 +43,18 @@ pipeline {
         stage('Update K8s Manifest') {
             steps {
                 sh """
-                    sed -i '' 's|image: .*|image: ${IMAGE_TAG}|' k8s/deployment.yaml
+                    sed -i "s|image: .*|image: ${IMAGE_TAG}|" k8s/deployment.yaml
                     echo "Updated deployment.yaml to use image: ${IMAGE_TAG}"
                     cat k8s/deployment.yaml | grep image
                 """
             }
         }
 
-        // Stage 5: Apply updated manifests to the Kubernetes cluster
+        // Stage 5: Apply updated manifests to the Google Kubernetes Engine (GKE) cluster
         stage('Deploy to Kubernetes') {
             steps {
-                sh 'KUBECONFIG=/Users/bublee/.kube/config kubectl apply -f k8s/'
-                sh 'KUBECONFIG=/Users/bublee/.kube/config kubectl rollout status deployment/basic-project --timeout=120s'
+                sh 'kubectl apply -f k8s/'
+                sh 'kubectl rollout status deployment/basic-project --timeout=180s'
             }
         }
     }

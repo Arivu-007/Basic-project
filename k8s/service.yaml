@@ -5,11 +5,10 @@ metadata:
   labels:
     app: basic-project
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     app: basic-project
   ports:
   - port: 80
     targetPort: 3000
-    nodePort: 30080
     protocol: TCP
