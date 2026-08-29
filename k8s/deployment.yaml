@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - name: basic-project
-        image: arivu007/basic-project:24
+        image: arivu007/basic-project:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 3000
