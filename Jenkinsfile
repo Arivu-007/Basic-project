@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    triggers {
+        githubPush()
+    }
+
     environment {
         REGISTRY    = 'arivu007'
         APP_NAME    = 'basic-project'
